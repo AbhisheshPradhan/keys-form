@@ -49,8 +49,7 @@ const theme = createMuiTheme({
 
 const onSubmit = async (values) => {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
+  console.log('form submitted');
 };
 const validate = (values) => {
   const errors = {};

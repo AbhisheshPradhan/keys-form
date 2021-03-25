@@ -103,8 +103,8 @@ function App() {
                   <img src='about_family.png' />
                 </div>
 
-                <Grid container alignItems='flex-start' spacing={2} style={{ marginBottom: 15 }}>
-                  <Grid item xs={12} md={12}>
+                <Grid container alignItems='flex-start' spacing={2}>
+                  <Grid item xs={12} md={12} style={{ marginBottom: 15 }}>
                     <FormControl component='fieldset'>
                       <FormGroup col>
                         <FormControlLabel

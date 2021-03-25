@@ -27,6 +27,9 @@ import {
   AccordionDetails,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import Add from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
@@ -193,11 +196,11 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <div align='right'>
                             <Button
-                              variant='contained'
+                              variant='outlined'
                               color='default'
                               type='button'
                               disabled={submitting}
-                              // endIcon={<ChevronRight />}
+                              startIcon={<DeleteIcon />}
                             >
                               Remove adult
                             </Button>
@@ -530,11 +533,11 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <div align='right'>
                             <Button
-                              variant='contained'
+                              variant='outlined'
                               color='default'
                               type='button'
                               disabled={submitting}
-                              // endIcon={<ChevronRight />}
+                              startIcon={<DeleteIcon />}
                             >
                               Remove adult
                             </Button>
@@ -806,11 +809,11 @@ function App() {
                   <Grid item xs={12} md={12} style={{ marginTop: 10, marginBottom: 20 }}>
                     <div align='middle'>
                       <Button
-                        variant='contained'
+                        variant='outlined'
                         color='primary'
                         type='button'
                         disabled={submitting}
-                        // endIcon={<ChevronRight />}
+                        startIcon={<Add />}
                       >
                         Add adult
                       </Button>
@@ -839,7 +842,7 @@ function App() {
                               color='default'
                               type='button'
                               disabled={submitting}
-                              // endIcon={<ChevronRight />}
+                              startIcon={<DeleteIcon />}
                             >
                               Remove child
                             </Button>
@@ -1079,11 +1082,11 @@ function App() {
                   <Grid item xs={12} md={12} style={{ marginTop: 10, marginBottom: 20 }}>
                     <div align='middle'>
                       <Button
-                        variant='contained'
+                        variant='outlined'
                         color='primary'
                         type='button'
                         disabled={submitting}
-                        // endIcon={<ChevronRight />}
+                        startIcon={<Add />}
                       >
                         Add child
                       </Button>
@@ -1097,7 +1100,8 @@ function App() {
                         color='primary'
                         type='button'
                         disabled={submitting}
-                        // endIcon={<ChevronRight />}
+                        endIcon={<ChevronRight />}
+                        size='large'
                       >
                         Next step
                       </Button>

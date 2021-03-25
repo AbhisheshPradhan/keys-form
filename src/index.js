@@ -497,7 +497,7 @@ function App() {
                                 label='Parent'
                                 control={
                                   <Field
-                                    name='primary'
+                                    name='primary-2'
                                     component={Radio}
                                     type='radio'
                                     value='parent'
@@ -508,7 +508,7 @@ function App() {
                                 label='Carer'
                                 control={
                                   <Field
-                                    name='primary'
+                                    name='primary-2'
                                     component={Radio}
                                     type='radio'
                                     value='carer'
@@ -519,7 +519,7 @@ function App() {
                                 label='Guardian'
                                 control={
                                   <Field
-                                    name='primary'
+                                    name='primary-2'
                                     component={Radio}
                                     type='radio'
                                     value='guardian'
@@ -547,7 +547,7 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <Field
                             fullWidth
-                            name='Role in the family '
+                            name='Role in the family -2'
                             component={TextField}
                             type='text'
                             label='Role in the family'
@@ -558,7 +558,7 @@ function App() {
                           <Field
                             fullWidth
                             required
-                            name='firstName'
+                            name='firstName-2'
                             component={TextField}
                             type='text'
                             label='First Name'
@@ -569,7 +569,7 @@ function App() {
                           <Field
                             fullWidth
                             required
-                            name='lastName'
+                            name='lastName-2'
                             component={TextField}
                             type='text'
                             label='Last Name'
@@ -583,20 +583,20 @@ function App() {
                               <FormControlLabel
                                 label='F'
                                 control={
-                                  <Field name='gender' component={Radio} type='radio' value='F' />
+                                  <Field name='gender-2' component={Radio} type='radio' value='F' />
                                 }
                               />
                               <FormControlLabel
                                 label='M'
                                 control={
-                                  <Field name='gender' component={Radio} type='radio' value='M' />
+                                  <Field name='gender-2' component={Radio} type='radio' value='M' />
                                 }
                               />
                               <FormControlLabel
                                 label='Other'
                                 control={
                                   <Field
-                                    name='gender'
+                                    name='gender-2'
                                     component={Radio}
                                     type='radio'
                                     value='Other'
@@ -610,7 +610,7 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <MTextField
                             fullWidth
-                            id='date'
+                            id='date-2'
                             label='Date of birth'
                             type='date'
                             InputLabelProps={{
@@ -629,7 +629,7 @@ function App() {
                                 label='Aboriginal'
                                 control={
                                   <Field
-                                    name='Aboriginal'
+                                    name='Aboriginal-2'
                                     component={Checkbox}
                                     type='checkbox'
                                     value='Aboriginal'
@@ -640,7 +640,7 @@ function App() {
                                 label='Torres Strait Islander'
                                 control={
                                   <Field
-                                    name='Aboriginal'
+                                    name='Aboriginal-2'
                                     component={Checkbox}
                                     type='checkbox'
                                     value='Torres Strait Islander'
@@ -654,7 +654,7 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <Field
                             fullWidth
-                            name='Cultural identity'
+                            name='Cultural identity-2'
                             component={TextField}
                             type='text'
                             label='Cultural identity'
@@ -664,7 +664,7 @@ function App() {
                         <Grid item xs={12} md={8}>
                           <Field
                             fullWidth
-                            name='Language spoken at home'
+                            name='Language spoken at home-2'
                             component={TextField}
                             type='text'
                             label='Language spoken at home'
@@ -676,7 +676,7 @@ function App() {
                             label='Needs interpreter'
                             control={
                               <Field
-                                name='Needs interpreter'
+                                name='Needs interpreter-2'
                                 component={Checkbox}
                                 type='checkbox'
                               />
@@ -687,7 +687,7 @@ function App() {
                         <Grid item xs={12} md={8}>
                           <Field
                             fullWidth
-                            name='Medicare number'
+                            name='Medicare number-2'
                             component={TextField}
                             type='text'
                             label={
@@ -701,7 +701,7 @@ function App() {
                         <Grid item xs={12} md={4}>
                           <Field
                             fullWidth
-                            name='Ref'
+                            name='Ref-2'
                             component={TextField}
                             type='text'
                             label='Ref'
@@ -711,7 +711,7 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <Field
                             fullWidth
-                            name='Centrelink'
+                            name='Centrelink-2'
                             component={TextField}
                             type='text'
                             label={
@@ -731,7 +731,7 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <Field
                             fullWidth
-                            name='home-phone'
+                            name='home-phone-2'
                             component={TextField}
                             label='Home phone'
                           />
@@ -740,7 +740,7 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <Field
                             fullWidth
-                            name='mobile-phone'
+                            name='mobile-phone-2'
                             component={TextField}
                             label='Mobile'
                           />
@@ -748,7 +748,7 @@ function App() {
 
                         <Grid item xs={12} md={12}>
                           <Field
-                            name='email'
+                            name='email-2'
                             fullWidth
                             required
                             component={TextField}
@@ -762,7 +762,7 @@ function App() {
                             label='Wish to receive a copy of this form via email'
                             control={
                               <Field
-                                name='Wish to receive a copy of this form via email'
+                                name='Wish to receive a copy of this form via email-2'
                                 component={Checkbox}
                                 type='checkbox'
                               />
@@ -773,20 +773,20 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <Field
                             fullWidth
-                            name='address'
+                            name='address-2'
                             component={TextField}
                             label='Mailing address'
                           />
                         </Grid>
 
                         <Grid item xs={12} md={6}>
-                          <Field fullWidth name='Suburb' component={TextField} label='Suburb' />
+                          <Field fullWidth name='Suburb-2' component={TextField} label='Suburb' />
                         </Grid>
 
                         <Grid item xs={12} md={3}>
                           <Field
                             fullWidth
-                            name='State'
+                            name='State-2'
                             component={Select}
                             label='Select a State'
                             formControlProps={{ fullWidth: true }}
@@ -801,7 +801,12 @@ function App() {
                         </Grid>
 
                         <Grid item xs={12} md={3}>
-                          <Field fullWidth name='Postcode' component={TextField} label='Postcode' />
+                          <Field
+                            fullWidth
+                            name='Postcode-2'
+                            component={TextField}
+                            label='Postcode'
+                          />
                         </Grid>
                       </Grid>
                     </AccordionDetails>
@@ -853,7 +858,7 @@ function App() {
                           <Field
                             fullWidth
                             required
-                            name='firstName'
+                            name='firstName-c1'
                             component={TextField}
                             type='text'
                             label='First Name'
@@ -864,7 +869,7 @@ function App() {
                           <Field
                             fullWidth
                             required
-                            name='lastName'
+                            name='lastName-c1'
                             component={TextField}
                             type='text'
                             label='Last Name'
@@ -878,20 +883,30 @@ function App() {
                               <FormControlLabel
                                 label='F'
                                 control={
-                                  <Field name='gender' component={Radio} type='radio' value='F' />
+                                  <Field
+                                    name='gender-c1'
+                                    component={Radio}
+                                    type='radio'
+                                    value='F'
+                                  />
                                 }
                               />
                               <FormControlLabel
                                 label='M'
                                 control={
-                                  <Field name='gender' component={Radio} type='radio' value='M' />
+                                  <Field
+                                    name='gender-c1'
+                                    component={Radio}
+                                    type='radio'
+                                    value='M'
+                                  />
                                 }
                               />
                               <FormControlLabel
                                 label='Other'
                                 control={
                                   <Field
-                                    name='gender'
+                                    name='gender-c1'
                                     component={Radio}
                                     type='radio'
                                     value='Other'
@@ -905,7 +920,7 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <MTextField
                             fullWidth
-                            id='date'
+                            id='date-c1'
                             label='Date of birth'
                             type='date'
                             InputLabelProps={{
@@ -924,7 +939,7 @@ function App() {
                                 label='Aboriginal'
                                 control={
                                   <Field
-                                    name='Aboriginal'
+                                    name='Aboriginal-c1'
                                     component={Checkbox}
                                     type='checkbox'
                                     value='Aboriginal'
@@ -935,7 +950,7 @@ function App() {
                                 label='Torres Strait Islander'
                                 control={
                                   <Field
-                                    name='Aboriginal'
+                                    name='Aboriginal-c1'
                                     component={Checkbox}
                                     type='checkbox'
                                     value='Torres Strait Islander'
@@ -949,7 +964,7 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <Field
                             fullWidth
-                            name='Cultural identity'
+                            name='Cultural identity-c1'
                             component={TextField}
                             type='text'
                             label='Cultural identity'
@@ -959,7 +974,7 @@ function App() {
                         <Grid item xs={12} md={8}>
                           <Field
                             fullWidth
-                            name='Medicare number'
+                            name='Medicare number-c1'
                             component={TextField}
                             type='text'
                             label={
@@ -973,7 +988,7 @@ function App() {
                         <Grid item xs={12} md={4}>
                           <Field
                             fullWidth
-                            name='Ref'
+                            name='Ref-c1'
                             component={TextField}
                             type='text'
                             label='Ref'
@@ -983,7 +998,7 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <Field
                             fullWidth
-                            name='Centrelink'
+                            name='Centrelink-c1'
                             component={TextField}
                             type='text'
                             label={
@@ -1003,7 +1018,7 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <Field
                             fullWidth
-                            name='home-phone'
+                            name='home-phone-c1'
                             component={TextField}
                             label='Home phone'
                           />
@@ -1012,7 +1027,7 @@ function App() {
                         <Grid item xs={12} md={6}>
                           <Field
                             fullWidth
-                            name='mobile-phone'
+                            name='mobile-phone-c1'
                             component={TextField}
                             label='Mobile'
                           />
@@ -1020,7 +1035,7 @@ function App() {
 
                         <Grid item xs={12} md={12}>
                           <Field
-                            name='email'
+                            name='email-c1'
                             fullWidth
                             required
                             component={TextField}
@@ -1034,7 +1049,7 @@ function App() {
                             label='Wish to receive a copy of this form via email'
                             control={
                               <Field
-                                name='Wish to receive a copy of this form via email'
+                                name='Wish to receive a copy of this form via email-c1'
                                 component={Checkbox}
                                 type='checkbox'
                               />
@@ -1045,20 +1060,20 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <Field
                             fullWidth
-                            name='address'
+                            name='address-c1'
                             component={TextField}
                             label='Mailing address'
                           />
                         </Grid>
 
                         <Grid item xs={12} md={6}>
-                          <Field fullWidth name='Suburb' component={TextField} label='Suburb' />
+                          <Field fullWidth name='Suburb-c1' component={TextField} label='Suburb' />
                         </Grid>
 
                         <Grid item xs={12} md={3}>
                           <Field
                             fullWidth
-                            name='State'
+                            name='State-c1'
                             component={Select}
                             label='Select a State'
                             formControlProps={{ fullWidth: true }}
@@ -1073,7 +1088,12 @@ function App() {
                         </Grid>
 
                         <Grid item xs={12} md={3}>
-                          <Field fullWidth name='Postcode' component={TextField} label='Postcode' />
+                          <Field
+                            fullWidth
+                            name='Postcode-c1'
+                            component={TextField}
+                            label='Postcode'
+                          />
                         </Grid>
                       </Grid>
                     </AccordionDetails>

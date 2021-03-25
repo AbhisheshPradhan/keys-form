@@ -97,7 +97,7 @@ function App() {
                   ))}
                 </Stepper>
                 <div align='center'>
-                  <img src='http://dev-wentwest.norbrik.com.au/wp-content/uploads/2021/03/about_family.png' />
+                  <img src='./assets/about_family.png' />
                 </div>
                 <Grid container alignItems='flex-start' spacing={2}>
                   <Grid item xs={12} md={12}>

@@ -97,7 +97,7 @@ function App() {
                   ))}
                 </Stepper>
                 <div align='center'>
-                  <img src='%PUBLIC_URL%/about_family.png' />
+                  <img src='about_family.png' />
                 </div>
                 <Grid container alignItems='flex-start' spacing={2}>
                   <Grid item xs={12} md={12}>

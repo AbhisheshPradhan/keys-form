@@ -1,27 +1,35 @@
 {
-  "name": "keys-form",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-final-form-material-ui-example",
+  "version": "4.0.0",
+  "description": "Demonstrates how to use Material-UI form controls.",
+  "keywords": [
+    "material-ui"
+  ],
+  "homepage": "http://abhisheshpradhan.github.io/keys-form",
+  "main": "src/index.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.1"
+    "@date-io/date-fns": "latest",
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/pickers": "latest",
+    "date-fns": "next",
+    "final-form": "latest",
+    "final-form-material-ui": "0.3.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-final-form": "latest",
+    "react-scripts": "latest"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [

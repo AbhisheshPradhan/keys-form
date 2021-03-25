@@ -838,7 +838,7 @@ function App() {
                         <Grid item xs={12} md={12}>
                           <div align='right'>
                             <Button
-                              variant='contained'
+                              variant='outlined'
                               color='default'
                               type='button'
                               disabled={submitting}

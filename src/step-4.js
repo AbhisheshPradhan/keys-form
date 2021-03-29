@@ -139,10 +139,18 @@ function App() {
                       component={TextField}
                       type='text'
                       label='Organisation'
+                      required
                     />
                   </Grid>
                   <Grid item xs={12} md={12}>
-                    <Field fullWidth name='Role' component={TextField} type='text' label='Role' />
+                    <Field
+                      fullWidth
+                      name='Role'
+                      component={TextField}
+                      type='text'
+                      label='Role'
+                      required
+                    />
                   </Grid>
 
                   <Grid item xs={12} md={6}>
@@ -179,11 +187,18 @@ function App() {
                       name='office-phone'
                       component={TextField}
                       label='Office phone'
+                      required
                     />
                   </Grid>
 
                   <Grid item xs={12} md={6}>
-                    <Field fullWidth name='mobile-phone' component={TextField} label='Mobile' />
+                    <Field
+                      fullWidth
+                      name='mobile-phone'
+                      component={TextField}
+                      label='Mobile'
+                      required
+                    />
                   </Grid>
 
                   <Grid item xs={12} md={12}>
@@ -194,6 +209,7 @@ function App() {
                       component={TextField}
                       type='email'
                       label='Email'
+                      required
                     />
                   </Grid>
 
@@ -204,6 +220,7 @@ function App() {
                       required
                       component={TextField}
                       label='Best time and day(s) to contact you '
+                      required
                     />
                   </Grid>
 
@@ -211,7 +228,7 @@ function App() {
                     <FormControl component='fieldset'>
                       <FormGroup row>
                         <FormLabel component='legend' style={{ width: '100%' }}>
-                          Do you have capacity to be a Lead Service Provider (LSP)?
+                          Do you have capacity to be a Lead Service Provider (LSP)? *
                         </FormLabel>
                         <FormControlLabel
                           label='Yes'
@@ -221,6 +238,7 @@ function App() {
                               component={Checkbox}
                               type='checkbox'
                               value='AborYesiginal'
+                              required
                             />
                           }
                         />
@@ -232,6 +250,7 @@ function App() {
                               component={Checkbox}
                               type='checkbox'
                               value='No'
+                              required
                             />
                           }
                         />
@@ -242,8 +261,8 @@ function App() {
                               name='Aboriginal-2'
                               component={Checkbox}
                               type='checkbox'
-                              value='I want to know more
-                              '
+                              value='I want to know more'
+                              required
                             />
                           }
                         />

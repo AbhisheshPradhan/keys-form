@@ -150,6 +150,7 @@ function App() {
                     <Accordion
                       expanded={adultExpanded === 'panel1'}
                       onChange={handleChange('panel1')}
+                      style={{ width: '100%' }}
                     >
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
@@ -211,8 +212,19 @@ function App() {
                               <MenuItem value='NSW'>provider 3</MenuItem>
                               <MenuItem value='NSW'>provider 4</MenuItem>
                               <MenuItem value='NSW'>provider 5</MenuItem>
-                              <MenuItem value='NSW'>provider 6</MenuItem>
+                              <MenuItem value='NSW'>Other</MenuItem>
                             </Field>
+                          </Grid>
+
+                          <Grid item xs={12} md={12}>
+                            <Field
+                              fullWidth
+                              name='Provided-to-name'
+                              component={TextField}
+                              type='text'
+                              label='Provider'
+                              required
+                            />
                           </Grid>
                         </Grid>
                       </AccordionDetails>
@@ -221,6 +233,7 @@ function App() {
                     <Accordion
                       expanded={adultExpanded === 'panel2'}
                       onChange={handleChange('panel2')}
+                      style={{ width: '100%' }}
                     >
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
@@ -268,24 +281,23 @@ function App() {
                               rows={6}
                             />
                           </Grid>
-                          <Grid item xs={12} md={12}>
-                            <Autocomplete
-                              id='combo-box-demo'
-                              options={Provider_options}
-                              getOptionLabel={(option) => option.title}
-                              style={{ width: 300 }}
-                              renderInput={(params) => (
-                                <TextField
-                                  {...params}
-                                  label='Who is the provider?'
-                                  variant='outlined'
-                                />
-                              )}
-                            />
-                          </Grid>
                         </Grid>
                       </AccordionDetails>
                     </Accordion>
+
+                    <Grid item xs={12} md={12} style={{ marginTop: 10, marginBottom: 20 }}>
+                      <div align='middle'>
+                        <Button
+                          variant='outlined'
+                          color='primary'
+                          type='button'
+                          disabled={submitting}
+                          startIcon={<Add />}
+                        >
+                          Add support or service
+                        </Button>
+                      </div>
+                    </Grid>
 
                     <Grid item xs={12} md={12} style={{ marginTop: 40 }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between' }}>

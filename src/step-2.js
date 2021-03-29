@@ -63,6 +63,20 @@ const theme = createMuiTheme({
   },
 });
 
+const helpTextStyle = {
+  color: 'rgba(0, 0, 0, 0.54)',
+  margin: 0,
+  fontSize: '0.75rem',
+  marginTop: 3,
+  textAlign: 'left',
+  fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+  fontWeight: 400,
+  lineHeight: 1.66,
+  letterSpacing: '0.03333em',
+  marginLeft: 14,
+  marginRight: 14,
+};
+
 const onSubmit = async (values) => {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   console.log('form submitted');
@@ -128,7 +142,40 @@ function App() {
                 </Stepper>
 
                 <Grid container alignItems='flex-start' spacing={2}>
-                  <Grid item xs={6} md={6} style={{ marginBottom: 15 }}>
+                  <Grid item xs={12} md={12} style={{ marginBottom: 15 }}>
+                    <div align='center'>
+                      <img
+                        src='http://dev-wentwest.norbrik.com.au/wp-content/uploads/2021/03/fam-n.png'
+                        height={100}
+                      />
+                    </div>
+
+                    <Grid item xs={12} md={12}>
+                      <Field
+                        fullWidth
+                        name='fam-needs'
+                        component={TextField}
+                        multiline={true}
+                        type='text'
+                        label='Our family needs are'
+                        rows={6}
+                        required
+                      />
+                      <p style={helpTextStyle}>E.g. of family needs</p>
+                    </Grid>
+                    <Grid item xs={12} md={12}>
+                      <Field
+                        fullWidth
+                        name='comments-2'
+                        component={TextField}
+                        multiline={true}
+                        type='text'
+                        label='Advocate’s additional comments'
+                        rows={6}
+                      />
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={12} md={12} style={{ marginBottom: 15 }}>
                     <div align='center'>
                       <img
                         src='http://dev-wentwest.norbrik.com.au/wp-content/uploads/2021/03/fam-s.png'
@@ -146,6 +193,7 @@ function App() {
                         label='Our family strengths are'
                         rows={6}
                       />
+                      <p style={helpTextStyle}>E.g. of family strengths</p>
                     </Grid>
                     <Grid item xs={12} md={12}>
                       <Field
@@ -159,37 +207,7 @@ function App() {
                       />
                     </Grid>
                   </Grid>
-                  <Grid item xs={6} md={6} style={{ marginBottom: 15 }}>
-                    <div align='center'>
-                      <img
-                        src='http://dev-wentwest.norbrik.com.au/wp-content/uploads/2021/03/fam-n.png'
-                        height={100}
-                      />
-                    </div>
 
-                    <Grid item xs={12} md={12}>
-                      <Field
-                        fullWidth
-                        name='fam-needs'
-                        component={TextField}
-                        multiline={true}
-                        type='text'
-                        label='Our family needs are'
-                        rows={6}
-                      />
-                    </Grid>
-                    <Grid item xs={12} md={12}>
-                      <Field
-                        fullWidth
-                        name='comments-2'
-                        component={TextField}
-                        multiline={true}
-                        type='text'
-                        label='Advocate’s additional comments'
-                        rows={6}
-                      />
-                    </Grid>
-                  </Grid>
                   <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                       <Button

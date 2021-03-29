@@ -61,6 +61,20 @@ const theme = createMuiTheme({
   },
 });
 
+const helpTextStyle = {
+  color: 'rgba(0, 0, 0, 0.54)',
+  margin: 0,
+  fontSize: '0.75rem',
+  marginTop: 3,
+  textAlign: 'left',
+  fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
+  fontWeight: 400,
+  lineHeight: 1.66,
+  letterSpacing: '0.03333em',
+  marginLeft: 14,
+  marginRight: 14,
+};
+
 const onSubmit = async (values) => {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   console.log('form submitted');
@@ -135,8 +149,35 @@ function App() {
                       </Typography>
 
                       <Typography style={{ fontSize: 14 }}>
-                        KEYS Network Support Desk for Services Providers: <br />
-                        support@keysnetwork.com.au or call 9829 8390
+                        <ul style={{ textAlign: 'left', width: '80%', margin: '0 auto' }}>
+                          <li>
+                            A referred family must meet the{' '}
+                            <a href='page-link' target='_blank'>
+                              KEYS Network eligibility criteria
+                            </a>
+                            .
+                          </li>
+                          <li>This form should be completed by a KEYS Network Advocate.</li>
+                          <li>It will take about 15-20 minutes to complete this form.</li>
+                          <li>
+                            Wherever possible, please complete this form alongside the family who is
+                            being referred.
+                          </li>
+                          <li>
+                            <a href='download-link' target='_blank'>
+                              Download
+                            </a>{' '}
+                            and complete the family consent form . This must be attached to the end
+                            of this referral form.
+                          </li>
+                        </ul>
+                        <p>
+                          KEYS Network Support Desk for Services Providers: <br />
+                          <a href='mailto:support@keysnetwork.com.au'>
+                            support@keysnetwork.com.au
+                          </a>{' '}
+                          or call <a href='tel:98298390'>9829 8390</a>
+                        </p>
                       </Typography>
                     </Grid>
 
@@ -178,7 +219,23 @@ function App() {
                     </Stepper>
 
                     <div align='center'>
-                      <img src='./about_family.png' />
+                      <img
+                        src='http://dev-wentwest.norbrik.com.au/wp-content/uploads/2021/03/af.png'
+                        style={{
+                          height: 80,
+                          marginBottom: -10,
+                        }}
+                      />
+                      <div
+                        style={{
+                          fontSize: 24,
+
+                          fontWeight: 800,
+                          color: '#0070c0',
+                        }}
+                      >
+                        ABOUT THE FAMILY
+                      </div>
                     </div>
 
                     <Grid container alignItems='flex-start' spacing={2}>
@@ -230,7 +287,7 @@ function App() {
                               <FormControl component='fieldset'>
                                 <FormLabel>
                                   <Typography variant='h5' component='h5'>
-                                    Primary
+                                    Primary *
                                   </Typography>
                                 </FormLabel>
                                 <RadioGroup row>
@@ -242,6 +299,7 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='parent'
+                                        required
                                       />
                                     }
                                   />
@@ -253,6 +311,7 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='carer'
+                                        required
                                       />
                                     }
                                   />
@@ -264,13 +323,13 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='guardian'
+                                        required
                                       />
                                     }
                                   />
                                 </RadioGroup>
                               </FormControl>
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <div align='right'>
                                 <Button
@@ -285,7 +344,6 @@ function App() {
                                 </Button>
                               </div>
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
@@ -293,9 +351,9 @@ function App() {
                                 component={TextField}
                                 type='text'
                                 label='Role in the family'
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <Field
                                 fullWidth
@@ -306,7 +364,6 @@ function App() {
                                 label='First Name'
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <Field
                                 fullWidth
@@ -317,30 +374,31 @@ function App() {
                                 label='Last Name'
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <FormControl component='fieldset'>
-                                <FormLabel component='legend'>Gender</FormLabel>
+                                <FormLabel component='legend'>Gender *</FormLabel>
                                 <RadioGroup row>
                                   <FormControlLabel
-                                    label='F'
+                                    label='Female'
                                     control={
                                       <Field
                                         name='gender'
                                         component={Radio}
                                         type='radio'
-                                        value='F'
+                                        value='Female'
+                                        required
                                       />
                                     }
                                   />
                                   <FormControlLabel
-                                    label='M'
+                                    label='Male'
                                     control={
                                       <Field
                                         name='gender'
                                         component={Radio}
                                         type='radio'
-                                        value='M'
+                                        value='Male'
+                                        required
                                       />
                                     }
                                   />
@@ -352,13 +410,13 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='Other'
+                                        required
                                       />
                                     }
                                   />
                                 </RadioGroup>
                               </FormControl>
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <MTextField
                                 fullWidth
@@ -368,23 +426,24 @@ function App() {
                                 InputLabelProps={{
                                   shrink: true,
                                 }}
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <FormControl component='fieldset'>
                                 <FormGroup col>
                                   <FormLabel component='legend'>
-                                    Do you identify as Aboriginal and/or Torres Strait Islander?
+                                    Do you identify as Aboriginal and/or Torres Strait Islander? *
                                   </FormLabel>
                                   <FormControlLabel
                                     label='Aboriginal'
                                     control={
                                       <Field
                                         name='Aboriginal'
-                                        component={Checkbox}
+                                        component={Radio}
                                         type='checkbox'
                                         value='Aboriginal'
+                                        required
                                       />
                                     }
                                   />
@@ -393,16 +452,40 @@ function App() {
                                     control={
                                       <Field
                                         name='Aboriginal'
-                                        component={Checkbox}
+                                        component={Radio}
                                         type='checkbox'
                                         value='Torres Strait Islander'
+                                        required
+                                      />
+                                    }
+                                  />
+                                  <FormControlLabel
+                                    label='Aboriginal and Torres Strait Islander'
+                                    control={
+                                      <Field
+                                        name='Aboriginal'
+                                        component={Radio}
+                                        type='checkbox'
+                                        value='Aboriginal and Torres Strait Islander'
+                                        required
+                                      />
+                                    }
+                                  />
+                                  <FormControlLabel
+                                    label='Prefer not to say'
+                                    control={
+                                      <Field
+                                        name='Aboriginal'
+                                        component={Radio}
+                                        type='checkbox'
+                                        value='Prefer not to say'
+                                        required
                                       />
                                     }
                                   />
                                 </FormGroup>
                               </FormControl>
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
@@ -410,9 +493,10 @@ function App() {
                                 component={TextField}
                                 type='text'
                                 label='Cultural identity'
+                                required
                               />
+                              <p style={helpTextStyle}>E.g. of cultural identities</p>
                             </Grid>
-
                             <Grid item xs={12} md={8}>
                               <Field
                                 fullWidth
@@ -420,9 +504,9 @@ function App() {
                                 component={TextField}
                                 type='text'
                                 label='Language spoken at home'
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={4}>
                               <FormControlLabel
                                 label='Needs interpreter'
@@ -435,93 +519,42 @@ function App() {
                                 }
                               />
                             </Grid>
-
-                            <Grid item xs={12} md={8}>
-                              <Field
-                                fullWidth
-                                name='Medicare number'
-                                component={TextField}
-                                type='text'
-                                label={
-                                  <span>
-                                    Medicare number <em>(if available)</em>
-                                  </span>
-                                }
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={4}>
-                              <Field
-                                fullWidth
-                                name='Ref'
-                                component={TextField}
-                                type='text'
-                                label='Ref'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                fullWidth
-                                name='Centrelink'
-                                component={TextField}
-                                type='text'
-                                label={
-                                  <span>
-                                    Centrelink number <em>(CRN, if available)</em>
-                                  </span>
-                                }
-                              />
-                            </Grid>
-
                             <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
                               <Typography variant='h5' component='h5'>
                                 Contact details
                               </Typography>
                             </Grid>
-
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12} md={4}>
                               <Field
                                 fullWidth
-                                name='home-phone'
+                                name='phone'
                                 component={TextField}
-                                label='Home phone'
+                                label='Contact phone'
+                                required
                               />
                             </Grid>
-
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                name='mobile-phone'
-                                component={TextField}
-                                label='Mobile'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
+                            <Grid item xs={12} md={8}>
                               <Field
                                 name='email'
                                 fullWidth
-                                required
                                 component={TextField}
                                 type='email'
                                 label='Email'
                               />
                             </Grid>
-
+                            // Only enable when email is inputted
                             <Grid item xs={12} md={12}>
                               <FormControlLabel
-                                label='Wish to receive a copy of this form via email'
+                                label='Email a copy of this form to this email address.'
                                 control={
                                   <Field
-                                    name='Wish to receive a copy of this form via email'
+                                    name='Email a copy of this form to this email address.'
                                     component={Checkbox}
                                     type='checkbox'
                                   />
                                 }
                               />
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
@@ -530,11 +563,15 @@ function App() {
                                 label='Mailing address'
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
-                              <Field fullWidth name='Suburb' component={TextField} label='Suburb' />
+                              <Field
+                                fullWidth
+                                name='Suburb'
+                                component={TextField}
+                                label='Suburb'
+                                required
+                              />
                             </Grid>
-
                             <Grid item xs={12} md={3}>
                               <Field
                                 fullWidth
@@ -542,6 +579,7 @@ function App() {
                                 component={Select}
                                 label='Select a State'
                                 formControlProps={{ fullWidth: true }}
+                                required
                               >
                                 <MenuItem value='NSW'>NSW</MenuItem>
                                 <MenuItem value='VIC'>VIC</MenuItem>
@@ -551,13 +589,13 @@ function App() {
                                 <MenuItem value='QLD'>QLD</MenuItem>
                               </Field>
                             </Grid>
-
                             <Grid item xs={12} md={3}>
                               <Field
                                 fullWidth
                                 name='Postcode'
                                 component={TextField}
                                 label='Postcode'
+                                required
                               />
                             </Grid>
                           </Grid>
@@ -583,7 +621,7 @@ function App() {
                               <FormControl component='fieldset'>
                                 <FormLabel>
                                   <Typography variant='h5' component='h5'>
-                                    Primary
+                                    Primary *
                                   </Typography>
                                 </FormLabel>
                                 <RadioGroup row>
@@ -595,6 +633,7 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='parent'
+                                        required
                                       />
                                     }
                                   />
@@ -606,6 +645,7 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='carer'
+                                        required
                                       />
                                     }
                                   />
@@ -617,13 +657,13 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='guardian'
+                                        required
                                       />
                                     }
                                   />
                                 </RadioGroup>
                               </FormControl>
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <div align='right'>
                                 <Button
@@ -638,7 +678,6 @@ function App() {
                                 </Button>
                               </div>
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
@@ -646,9 +685,9 @@ function App() {
                                 component={TextField}
                                 type='text'
                                 label='Role in the family'
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <Field
                                 fullWidth
@@ -659,7 +698,6 @@ function App() {
                                 label='First Name'
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <Field
                                 fullWidth
@@ -670,30 +708,31 @@ function App() {
                                 label='Last Name'
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <FormControl component='fieldset'>
-                                <FormLabel component='legend'>Gender</FormLabel>
+                                <FormLabel component='legend'>Gender *</FormLabel>
                                 <RadioGroup row>
                                   <FormControlLabel
-                                    label='F'
+                                    label='Female'
                                     control={
                                       <Field
                                         name='gender-2'
                                         component={Radio}
                                         type='radio'
-                                        value='F'
+                                        value='Female'
+                                        required
                                       />
                                     }
                                   />
                                   <FormControlLabel
-                                    label='M'
+                                    label='Male'
                                     control={
                                       <Field
                                         name='gender-2'
                                         component={Radio}
                                         type='radio'
-                                        value='M'
+                                        value='Male'
+                                        required
                                       />
                                     }
                                   />
@@ -705,13 +744,13 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='Other'
+                                        required
                                       />
                                     }
                                   />
                                 </RadioGroup>
                               </FormControl>
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <MTextField
                                 fullWidth
@@ -721,23 +760,24 @@ function App() {
                                 InputLabelProps={{
                                   shrink: true,
                                 }}
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <FormControl component='fieldset'>
                                 <FormGroup col>
                                   <FormLabel component='legend'>
-                                    Do you identify as Aboriginal and/or Torres Strait Islander?
+                                    Do you identify as Aboriginal and/or Torres Strait Islander? *
                                   </FormLabel>
                                   <FormControlLabel
                                     label='Aboriginal'
                                     control={
                                       <Field
                                         name='Aboriginal-2'
-                                        component={Checkbox}
+                                        component={Radio}
                                         type='checkbox'
                                         value='Aboriginal'
+                                        required
                                       />
                                     }
                                   />
@@ -746,16 +786,40 @@ function App() {
                                     control={
                                       <Field
                                         name='Aboriginal-2'
-                                        component={Checkbox}
+                                        component={Radio}
                                         type='checkbox'
                                         value='Torres Strait Islander'
+                                        required
+                                      />
+                                    }
+                                  />
+                                  <FormControlLabel
+                                    label='Aboriginal and Torres Strait Islander'
+                                    control={
+                                      <Field
+                                        name='Aboriginal-2'
+                                        component={Radio}
+                                        type='checkbox'
+                                        value='Aboriginal and Torres Strait Islander'
+                                        required
+                                      />
+                                    }
+                                  />
+                                  <FormControlLabel
+                                    label='Prefer not to say'
+                                    control={
+                                      <Field
+                                        name='Aboriginal-2'
+                                        component={Radio}
+                                        type='checkbox'
+                                        value='Prefer not to say'
+                                        required
                                       />
                                     }
                                   />
                                 </FormGroup>
                               </FormControl>
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
@@ -763,9 +827,10 @@ function App() {
                                 component={TextField}
                                 type='text'
                                 label='Cultural identity'
+                                required
                               />
+                              <p style={helpTextStyle}>E.g. of cultural identities</p>
                             </Grid>
-
                             <Grid item xs={12} md={8}>
                               <Field
                                 fullWidth
@@ -773,9 +838,9 @@ function App() {
                                 component={TextField}
                                 type='text'
                                 label='Language spoken at home'
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={4}>
                               <FormControlLabel
                                 label='Needs interpreter'
@@ -788,111 +853,60 @@ function App() {
                                 }
                               />
                             </Grid>
-
-                            <Grid item xs={12} md={8}>
-                              <Field
-                                fullWidth
-                                name='Medicare number-2'
-                                component={TextField}
-                                type='text'
-                                label={
-                                  <span>
-                                    Medicare number <em>(if available)</em>
-                                  </span>
-                                }
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={4}>
-                              <Field
-                                fullWidth
-                                name='Ref-2'
-                                component={TextField}
-                                type='text'
-                                label='Ref'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                fullWidth
-                                name='Centrelink-2'
-                                component={TextField}
-                                type='text'
-                                label={
-                                  <span>
-                                    Centrelink number <em>(CRN, if available)</em>
-                                  </span>
-                                }
-                              />
-                            </Grid>
-
                             <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
                               <Typography variant='h5' component='h5'>
                                 Contact details
                               </Typography>
                             </Grid>
-
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12} md={4}>
                               <Field
                                 fullWidth
-                                name='home-phone-2'
+                                name='phone-2'
                                 component={TextField}
-                                label='Home phone'
+                                label='Contact phone'
+                                required
                               />
                             </Grid>
-
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                name='mobile-phone-2'
-                                component={TextField}
-                                label='Mobile'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
+                            <Grid item xs={12} md={8}>
                               <Field
                                 name='email-2'
                                 fullWidth
-                                required
                                 component={TextField}
                                 type='email'
                                 label='Email'
                               />
                             </Grid>
-
+                            // Only enable when email is inputted
                             <Grid item xs={12} md={12}>
                               <FormControlLabel
-                                label='Wish to receive a copy of this form via email'
+                                label='Email a copy of this form to this email address.'
                                 control={
                                   <Field
-                                    name='Wish to receive a copy of this form via email-2'
+                                    name='Email a copy of this form to this email address. -2'
                                     component={Checkbox}
                                     type='checkbox'
                                   />
                                 }
                               />
                             </Grid>
-
                             <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
                                 name='address-2'
                                 component={TextField}
                                 label='Mailing address'
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={6}>
                               <Field
                                 fullWidth
                                 name='Suburb-2'
                                 component={TextField}
                                 label='Suburb'
+                                required
                               />
                             </Grid>
-
                             <Grid item xs={12} md={3}>
                               <Field
                                 fullWidth
@@ -900,6 +914,7 @@ function App() {
                                 component={Select}
                                 label='Select a State'
                                 formControlProps={{ fullWidth: true }}
+                                required
                               >
                                 <MenuItem value='NSW'>NSW</MenuItem>
                                 <MenuItem value='VIC'>VIC</MenuItem>
@@ -909,13 +924,13 @@ function App() {
                                 <MenuItem value='QLD'>QLD</MenuItem>
                               </Field>
                             </Grid>
-
                             <Grid item xs={12} md={3}>
                               <Field
                                 fullWidth
                                 name='Postcode-2'
                                 component={TextField}
                                 label='Postcode'
+                                required
                               />
                             </Grid>
                           </Grid>
@@ -974,27 +989,29 @@ function App() {
 
                             <Grid item xs={12} md={6}>
                               <FormControl component='fieldset'>
-                                <FormLabel component='legend'>Gender</FormLabel>
+                                <FormLabel component='legend'>Gender *</FormLabel>
                                 <RadioGroup row>
                                   <FormControlLabel
-                                    label='F'
+                                    label='Female'
                                     control={
                                       <Field
                                         name='gender-c1'
                                         component={Radio}
                                         type='radio'
-                                        value='F'
+                                        value='Female'
+                                        required
                                       />
                                     }
                                   />
                                   <FormControlLabel
-                                    label='M'
+                                    label='Male'
                                     control={
                                       <Field
                                         name='gender-c1'
                                         component={Radio}
                                         type='radio'
-                                        value='M'
+                                        value='Male'
+                                        required
                                       />
                                     }
                                   />
@@ -1006,6 +1023,7 @@ function App() {
                                         component={Radio}
                                         type='radio'
                                         value='Other'
+                                        required
                                       />
                                     }
                                   />
@@ -1022,6 +1040,7 @@ function App() {
                                 InputLabelProps={{
                                   shrink: true,
                                 }}
+                                required
                               />
                             </Grid>
 
@@ -1029,16 +1048,17 @@ function App() {
                               <FormControl component='fieldset'>
                                 <FormGroup col>
                                   <FormLabel component='legend'>
-                                    Do they identify as Aboriginal and/or Torres Strait Islander?
+                                    Do they identify as Aboriginal and/or Torres Strait Islander? *
                                   </FormLabel>
                                   <FormControlLabel
                                     label='Aboriginal'
                                     control={
                                       <Field
                                         name='Aboriginal-c1'
-                                        component={Checkbox}
+                                        component={Radio}
                                         type='checkbox'
                                         value='Aboriginal'
+                                        required
                                       />
                                     }
                                   />
@@ -1047,9 +1067,34 @@ function App() {
                                     control={
                                       <Field
                                         name='Aboriginal-c1'
-                                        component={Checkbox}
+                                        component={Radio}
                                         type='checkbox'
                                         value='Torres Strait Islander'
+                                        required
+                                      />
+                                    }
+                                  />
+                                  <FormControlLabel
+                                    label='Aboriginal and Torres Strait Islander'
+                                    control={
+                                      <Field
+                                        name='Aboriginal-c1'
+                                        component={Radio}
+                                        type='checkbox'
+                                        value='Aboriginal and Torres Strait Islander'
+                                        required
+                                      />
+                                    }
+                                  />
+                                  <FormControlLabel
+                                    label='Prefer not to say'
+                                    control={
+                                      <Field
+                                        name='Aboriginal-c1'
+                                        component={Radio}
+                                        type='checkbox'
+                                        value='Prefer not to say'
+                                        required
                                       />
                                     }
                                   />
@@ -1064,136 +1109,19 @@ function App() {
                                 component={TextField}
                                 type='text'
                                 label='Cultural identity'
+                                required
                               />
+                              <p style={helpTextStyle}>E.g. of cultural identities</p>
                             </Grid>
 
-                            <Grid item xs={12} md={8}>
-                              <Field
-                                fullWidth
-                                name='Medicare number-c1'
-                                component={TextField}
-                                type='text'
-                                label={
-                                  <span>
-                                    Medicare number <em>(if available)</em>
-                                  </span>
-                                }
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={4}>
+                            <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
                                 name='Ref-c1'
                                 component={TextField}
                                 type='text'
-                                label='Ref'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                fullWidth
-                                name='Centrelink-c1'
-                                component={TextField}
-                                type='text'
-                                label={
-                                  <span>
-                                    Centrelink number <em>(CRN, if available)</em>
-                                  </span>
-                                }
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
-                              <Typography variant='h5' component='h5'>
-                                Contact details
-                              </Typography>
-                            </Grid>
-
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                name='home-phone-c1'
-                                component={TextField}
-                                label='Home phone'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                name='mobile-phone-c1'
-                                component={TextField}
-                                label='Mobile'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                name='email-c1'
-                                fullWidth
+                                label='Name of school/childcare'
                                 required
-                                component={TextField}
-                                type='email'
-                                label='Email'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
-                              <FormControlLabel
-                                label='Wish to receive a copy of this form via email'
-                                control={
-                                  <Field
-                                    name='Wish to receive a copy of this form via email-c1'
-                                    component={Checkbox}
-                                    type='checkbox'
-                                  />
-                                }
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                fullWidth
-                                name='address-c1'
-                                component={TextField}
-                                label='Mailing address'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                name='Suburb-c1'
-                                component={TextField}
-                                label='Suburb'
-                              />
-                            </Grid>
-
-                            <Grid item xs={12} md={3}>
-                              <Field
-                                fullWidth
-                                name='State-c1'
-                                component={Select}
-                                label='Select a State'
-                                formControlProps={{ fullWidth: true }}
-                              >
-                                <MenuItem value='NSW'>NSW</MenuItem>
-                                <MenuItem value='VIC'>VIC</MenuItem>
-                                <MenuItem value='SA'>SA</MenuItem>
-                                <MenuItem value='WA'>WA</MenuItem>
-                                <MenuItem value='TAS'>TAS</MenuItem>
-                                <MenuItem value='QLD'>QLD</MenuItem>
-                              </Field>
-                            </Grid>
-
-                            <Grid item xs={12} md={3}>
-                              <Field
-                                fullWidth
-                                name='Postcode-c1'
-                                component={TextField}
-                                label='Postcode'
                               />
                             </Grid>
                           </Grid>

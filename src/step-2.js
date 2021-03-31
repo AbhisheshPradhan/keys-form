@@ -97,7 +97,7 @@ const validate = (values) => {
 };
 
 function getSteps() {
-  return ['ABOUT FAMILY', 'STRENGTHS AND NEEDS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
+  return ['ABOUT FAMILY', 'NEEDS AND STRENGTHS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
 }
 
 function App() {

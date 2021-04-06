@@ -164,21 +164,6 @@ function App() {
                       <AccordionDetails>
                         <Grid container alignItems='flex-start' spacing={2}>
                           <Grid item xs={12} md={12}>
-                            <div align='right'>
-                              <Button
-                                variant='outlined'
-                                color='default'
-                                type='button'
-                                disabled={submitting}
-                                startIcon={<DeleteIcon />}
-                                onClick={handleClickOpen}
-                              >
-                                Remove
-                              </Button>
-                            </div>
-                          </Grid>
-
-                          <Grid item xs={12} md={12}>
                             <Field
                               fullWidth
                               name='Provided-to'
@@ -214,72 +199,6 @@ function App() {
                               <MenuItem value='NSW'>provider 5</MenuItem>
                               <MenuItem value='NSW'>Other</MenuItem>
                             </Field>
-                          </Grid>
-
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='Provided-to-name'
-                              component={TextField}
-                              type='text'
-                              label='Provider'
-                              required
-                            />
-                          </Grid>
-                        </Grid>
-                      </AccordionDetails>
-                    </Accordion>
-
-                    <Accordion
-                      expanded={adultExpanded === 'panel2'}
-                      onChange={handleChange('panel2')}
-                      style={{ width: '100%' }}
-                    >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls='panel2d-content'
-                        id='panel2d-header'
-                      >
-                        <Typography variant='h5' component='h4'>
-                          Support or service 2:
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Grid container alignItems='flex-start' spacing={2}>
-                          <Grid item xs={12} md={12}>
-                            <div align='right'>
-                              <Button
-                                variant='outlined'
-                                color='default'
-                                type='button'
-                                disabled={submitting}
-                                startIcon={<DeleteIcon />}
-                                onClick={handleClickOpen}
-                              >
-                                Remove
-                              </Button>
-                            </div>
-                          </Grid>
-
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='Provided-to-2'
-                              component={TextField}
-                              type='text'
-                              label='Provided to'
-                            />
-                          </Grid>
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='comments-2-2'
-                              component={TextField}
-                              multiline={true}
-                              type='text'
-                              label='What is the support or service?'
-                              rows={6}
-                            />
                           </Grid>
                         </Grid>
                       </AccordionDetails>

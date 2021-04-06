@@ -131,52 +131,75 @@ function App() {
             validate={validate}
             render={({ handleSubmit, reset, submitting, pristine, values }) => (
               <form onSubmit={handleSubmit} noValidate>
-                <Paper style={{ padding: 16, boxShadow: 'none' }}>
+                <Paper style={{ padding: '20px 30px', boxShadow: 'none' }}>
                   <Grid container alignItems='flex-start' spacing={2}>
-                    <Grid item xs={12} md={12} style={{ marginBottom: 15, textAlign: 'center' }}>
+                    <Grid item xs={12} md={12}>
                       <Typography
                         variant='h6'
                         component='h6'
                         style={{
-                          width: '80%',
-                          margin: '0 auto',
-                          border: '1px solid #ebebeb',
-                          padding: '10px 20px',
                           marginBottom: 20,
+                          fontSize: 28,
                         }}
                       >
-                        If there is an immediate need, do not use this form. Call 9829 8390 instead.
+                        The KEYS Network Family Referral Form
                       </Typography>
 
                       <Typography style={{ fontSize: 14 }}>
-                        <ul style={{ textAlign: 'left', width: '80%', margin: '0 auto' }}>
-                          <li>
-                            A referred family must meet the{' '}
+                        <ul style={{ textAlign: 'left', paddingLeft: 20, marginBottom: 30 }}>
+                          <li style={{ marginBottom: 5 }}>
+                            Prior to making a referral, please check family meet KEYS Eligibility
+                            Criteria{' '}
                             <a href='page-link' target='_blank'>
-                              KEYS Network eligibility criteria
+                              link TBD
                             </a>
-                            .
                           </li>
-                          <li>This form should be completed by a KEYS Network Advocate.</li>
-                          <li>It will take about 15-20 minutes to complete this form.</li>
-                          <li>
-                            Wherever possible, please complete this form alongside the family who is
-                            being referred.
+                          <li style={{ marginBottom: 5 }}>
+                            If unable to complete the referral online, Referral Forms are available
+                            for download {' '}
+                            <a href='page-link' target='_blank'>
+                              link TBD
+                            </a>
                           </li>
-                          <li>
-                            <a href='download-link' target='_blank'>
-                              Download
-                            </a>{' '}
-                            and complete the family consent form . This must be attached to the end
-                            of this referral form.
+                          <li style={{ marginBottom: 5 }}>
+                            Completing a referral form should take approximately 10 -15 minutes
+                          </li>
+                          <li style={{ marginBottom: 5 }}>
+                            Referrals should be completed together with the family wherever
+                            possible. 
+                          </li>
+                          <li style={{ marginBottom: 5 }}>
+                            Prior to submitting the referral form, you should ensure the family
+                            provides written consent for engagement of the KEYS Network and attach a
+                            completed Family Consent Form with the referral {' '}
+                            <a href='page-link' target='_blank'>
+                              link TBD
+                            </a>
+                          </li>
+                          <li style={{ marginBottom: 5 }}>
+                            Families should be provided with a copy of the completed
+                            Family Referral Form and Consent Form if requested.
+                          </li>
+                          <li style={{ marginBottom: 5 }}>
+                            The KEYS Network is not a crisis response agency. However, if you have a
+                            family with an urgent service need please contact the KEYS Helpdesk
+                            prior to completing the referral on (02) 8811 7145.
                           </li>
                         </ul>
                         <p>
-                          KEYS Network Support Desk for Services Providers: <br />
-                          <a href='mailto:support@keysnetwork.com.au'>
-                            support@keysnetwork.com.au
-                          </a>{' '}
-                          or call <a href='tel:98298390'>9829 8390</a>
+                          If you have any questions about referring a family, please contact the
+                          KEYS Network team:
+                        </p>
+                        <p>
+                          Phone:
+                          <span style={{ marginLeft: 30 }}>02 8811 7145</span>
+                          <br />
+                          Email:{' '}
+                          <span style={{ marginLeft: 35 }}>
+                            <a href='page-link' target='_blank'>
+                              KEYSNetworkWS@wentwest.com.au
+                            </a>
+                          </span>
                         </p>
                       </Typography>
                     </Grid>
@@ -283,7 +306,7 @@ function App() {
                         </AccordionSummary>
                         <AccordionDetails>
                           <Grid container alignItems='flex-start' spacing={2}>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12} md={12}>
                               <FormControl component='fieldset'>
                                 <FormLabel>
                                   <Typography variant='h5' component='h5'>
@@ -330,20 +353,7 @@ function App() {
                                 </RadioGroup>
                               </FormControl>
                             </Grid>
-                            <Grid item xs={12} md={6}>
-                              <div align='right'>
-                                <Button
-                                  variant='outlined'
-                                  color='default'
-                                  type='button'
-                                  disabled={submitting}
-                                  startIcon={<DeleteIcon />}
-                                  onClick={handleClickOpen}
-                                >
-                                  Remove adult
-                                </Button>
-                              </div>
-                            </Grid>
+
                             <Grid item xs={12} md={12}>
                               <Field
                                 fullWidth
@@ -509,10 +519,10 @@ function App() {
                             </Grid>
                             <Grid item xs={12} md={4}>
                               <FormControlLabel
-                                label='Needs interpreter'
+                                label='Needs an interpreter'
                                 control={
                                   <Field
-                                    name='Needs interpreter'
+                                    name='Needs an interpreter'
                                     component={Checkbox}
                                     type='checkbox'
                                   />
@@ -520,7 +530,7 @@ function App() {
                               />
                             </Grid>
                             <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
-                              <Typography variant='h5' component='h5'>
+                              <Typography variant='h5' component='h5' style={{ fontSize: 20 }}>
                                 Contact details
                               </Typography>
                             </Grid>
@@ -542,7 +552,7 @@ function App() {
                                 label='Email'
                               />
                             </Grid>
-                            // Only enable when email is inputted
+
                             <Grid item xs={12} md={12}>
                               <FormControlLabel
                                 label='Email a copy of this form to this email address.'
@@ -602,340 +612,6 @@ function App() {
                         </AccordionDetails>
                       </Accordion>
 
-                      <Accordion
-                        expanded={adultExpanded === 'panel2'}
-                        onChange={handleChange('panel2')}
-                      >
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls='panel1d-content'
-                          id='panel1d-header'
-                        >
-                          <Typography variant='h5' component='h4'>
-                            Adult 2:
-                          </Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <Grid container alignItems='flex-start' spacing={2}>
-                            <Grid item xs={12} md={6}>
-                              <FormControl component='fieldset'>
-                                <FormLabel>
-                                  <Typography variant='h5' component='h5'>
-                                    Primary *
-                                  </Typography>
-                                </FormLabel>
-                                <RadioGroup row>
-                                  <FormControlLabel
-                                    label='Parent'
-                                    control={
-                                      <Field
-                                        name='primary-2'
-                                        component={Radio}
-                                        type='radio'
-                                        value='parent'
-                                        required
-                                      />
-                                    }
-                                  />
-                                  <FormControlLabel
-                                    label='Carer'
-                                    control={
-                                      <Field
-                                        name='primary-2'
-                                        component={Radio}
-                                        type='radio'
-                                        value='carer'
-                                        required
-                                      />
-                                    }
-                                  />
-                                  <FormControlLabel
-                                    label='Guardian'
-                                    control={
-                                      <Field
-                                        name='primary-2'
-                                        component={Radio}
-                                        type='radio'
-                                        value='guardian'
-                                        required
-                                      />
-                                    }
-                                  />
-                                </RadioGroup>
-                              </FormControl>
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                              <div align='right'>
-                                <Button
-                                  variant='outlined'
-                                  color='default'
-                                  type='button'
-                                  disabled={submitting}
-                                  startIcon={<DeleteIcon />}
-                                  onClick={handleClickOpen}
-                                >
-                                  Remove adult
-                                </Button>
-                              </div>
-                            </Grid>
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                fullWidth
-                                name='Role in the family -2'
-                                component={TextField}
-                                type='text'
-                                label='Role in the family'
-                                required
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                required
-                                name='firstName-2'
-                                component={TextField}
-                                type='text'
-                                label='First Name'
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                required
-                                name='lastName-2'
-                                component={TextField}
-                                type='text'
-                                label='Last Name'
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                              <FormControl component='fieldset'>
-                                <FormLabel component='legend'>Gender *</FormLabel>
-                                <RadioGroup row>
-                                  <FormControlLabel
-                                    label='Female'
-                                    control={
-                                      <Field
-                                        name='gender-2'
-                                        component={Radio}
-                                        type='radio'
-                                        value='Female'
-                                        required
-                                      />
-                                    }
-                                  />
-                                  <FormControlLabel
-                                    label='Male'
-                                    control={
-                                      <Field
-                                        name='gender-2'
-                                        component={Radio}
-                                        type='radio'
-                                        value='Male'
-                                        required
-                                      />
-                                    }
-                                  />
-                                  <FormControlLabel
-                                    label='Other'
-                                    control={
-                                      <Field
-                                        name='gender-2'
-                                        component={Radio}
-                                        type='radio'
-                                        value='Other'
-                                        required
-                                      />
-                                    }
-                                  />
-                                </RadioGroup>
-                              </FormControl>
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                              <MTextField
-                                fullWidth
-                                id='date-2'
-                                label='Date of birth'
-                                type='date'
-                                InputLabelProps={{
-                                  shrink: true,
-                                }}
-                                required
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={12}>
-                              <FormControl component='fieldset'>
-                                <FormGroup col>
-                                  <FormLabel component='legend'>
-                                    Do you identify as Aboriginal and/or Torres Strait Islander? *
-                                  </FormLabel>
-                                  <FormControlLabel
-                                    label='Aboriginal'
-                                    control={
-                                      <Field
-                                        name='Aboriginal-2'
-                                        component={Radio}
-                                        type='checkbox'
-                                        value='Aboriginal'
-                                        required
-                                      />
-                                    }
-                                  />
-                                  <FormControlLabel
-                                    label='Torres Strait Islander'
-                                    control={
-                                      <Field
-                                        name='Aboriginal-2'
-                                        component={Radio}
-                                        type='checkbox'
-                                        value='Torres Strait Islander'
-                                        required
-                                      />
-                                    }
-                                  />
-                                  <FormControlLabel
-                                    label='Aboriginal and Torres Strait Islander'
-                                    control={
-                                      <Field
-                                        name='Aboriginal-2'
-                                        component={Radio}
-                                        type='checkbox'
-                                        value='Aboriginal and Torres Strait Islander'
-                                        required
-                                      />
-                                    }
-                                  />
-                                  <FormControlLabel
-                                    label='Prefer not to say'
-                                    control={
-                                      <Field
-                                        name='Aboriginal-2'
-                                        component={Radio}
-                                        type='checkbox'
-                                        value='Prefer not to say'
-                                        required
-                                      />
-                                    }
-                                  />
-                                </FormGroup>
-                              </FormControl>
-                            </Grid>
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                fullWidth
-                                name='Cultural identity-2'
-                                component={TextField}
-                                type='text'
-                                label='Cultural identity'
-                                required
-                              />
-                              <p style={helpTextStyle}>E.g. of cultural identities</p>
-                            </Grid>
-                            <Grid item xs={12} md={8}>
-                              <Field
-                                fullWidth
-                                name='Language spoken at home-2'
-                                component={TextField}
-                                type='text'
-                                label='Language spoken at home'
-                                required
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                              <FormControlLabel
-                                label='Needs interpreter'
-                                control={
-                                  <Field
-                                    name='Needs interpreter-2'
-                                    component={Checkbox}
-                                    type='checkbox'
-                                  />
-                                }
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
-                              <Typography variant='h5' component='h5'>
-                                Contact details
-                              </Typography>
-                            </Grid>
-                            <Grid item xs={12} md={4}>
-                              <Field
-                                fullWidth
-                                name='phone-2'
-                                component={TextField}
-                                label='Contact phone'
-                                required
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={8}>
-                              <Field
-                                name='email-2'
-                                fullWidth
-                                component={TextField}
-                                type='email'
-                                label='Email'
-                              />
-                            </Grid>
-                            // Only enable when email is inputted
-                            <Grid item xs={12} md={12}>
-                              <FormControlLabel
-                                label='Email a copy of this form to this email address.'
-                                control={
-                                  <Field
-                                    name='Email a copy of this form to this email address. -2'
-                                    component={Checkbox}
-                                    type='checkbox'
-                                  />
-                                }
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={12}>
-                              <Field
-                                fullWidth
-                                name='address-2'
-                                component={TextField}
-                                label='Mailing address'
-                                required
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={6}>
-                              <Field
-                                fullWidth
-                                name='Suburb-2'
-                                component={TextField}
-                                label='Suburb'
-                                required
-                              />
-                            </Grid>
-                            <Grid item xs={12} md={3}>
-                              <Field
-                                fullWidth
-                                name='State-2'
-                                component={Select}
-                                label='Select a State'
-                                formControlProps={{ fullWidth: true }}
-                                required
-                              >
-                                <MenuItem value='NSW'>NSW</MenuItem>
-                                <MenuItem value='VIC'>VIC</MenuItem>
-                                <MenuItem value='SA'>SA</MenuItem>
-                                <MenuItem value='WA'>WA</MenuItem>
-                                <MenuItem value='TAS'>TAS</MenuItem>
-                                <MenuItem value='QLD'>QLD</MenuItem>
-                              </Field>
-                            </Grid>
-                            <Grid item xs={12} md={3}>
-                              <Field
-                                fullWidth
-                                name='Postcode-2'
-                                component={TextField}
-                                label='Postcode'
-                                required
-                              />
-                            </Grid>
-                          </Grid>
-                        </AccordionDetails>
-                      </Accordion>
                       <Grid item xs={12} md={12} style={{ marginTop: 10, marginBottom: 20 }}>
                         <div align='middle'>
                           <Button

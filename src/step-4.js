@@ -51,13 +51,13 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#EB5846',
-      main: '#DE633A',
+      main: '#f1624f',
       dark: '#9F3B2F',
       contrastText: '#fff',
     },
     secondary: {
       light: '#EB5846',
-      main: '#DE633A',
+      main: '#f1624f',
       dark: '#9F3B2F',
       contrastText: '#F9B220',
     },
@@ -84,7 +84,7 @@ const validate = (values) => {
 };
 
 function getSteps() {
-  return ['ABOUT FAMILY', 'STRENGTHS AND NEEDS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
+  return ['ABOUT THE FAMILY', 'STRENGTHS AND NEEDS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
 }
 
 function App() {
@@ -270,6 +270,8 @@ function App() {
                     </FormControl>
                   </Grid>
 
+                  <Grid item xs={12} md={12}></Grid>
+
                   <Grid item xs={12} md={12}>
                     <FormControl component='fieldset'>
                       <FormGroup col>
@@ -278,74 +280,190 @@ function App() {
                           one or more of the following ACEs
                         </FormLabel>
                         <FormControlLabel
-                          label='Physical abuse'
+                          label='Young parent under 25'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Young parent under 25'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Homeless/Housing instability'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Homeless/Housing instability'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Substance use or smoking in pregnancy'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Substance use or smoking in pregnancy'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Involvement in out of home care (OOHC)'
                           control={
                             <Field name='ace' component={Checkbox} type='checkbox' value='' />
                           }
                         />
                         <FormControlLabel
-                          label='Sexual abuse'
+                          label='Domestic and Family Violence'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Domestic and Family Violence'
+                            />
                           }
                         />
                         <FormControlLabel
-                          label='Emotional abuse'
+                          label='Past experience of trauma'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Past experience of trauma'
+                            />
                           }
                         />
                         <FormControlLabel
-                          label='Parent in custody'
+                          label='Poor physical and/or mental health'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Poor physical and/or mental health'
+                            />
                           }
                         />
                         <FormControlLabel
-                          label='Parental separation'
+                          label='Not enrolled in school (compulsory school age)'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Not enrolled in school (compulsory school age)'
+                            />
                           }
                         />
                         <FormControlLabel
-                          label='Parental mental health'
+                          label='Multiple changes of schools – outside normal transition phases'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Multiple changes of schools – outside normal transition phases'
+                            />
                           }
                         />
                         <FormControlLabel
-                          label='Householder substance use'
+                          label='Involvement with criminal justice system'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Involvement with criminal justice system'
+                            />
                           }
                         />
                         <FormControlLabel
-                          label='Exposure to domestic violence
-                          '
+                          label='Limited appropriate social networks and connections and /or limited family supports'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Limited appropriate social networks and connections and /or limited family supports'
+                            />
                           }
                         />
                         <FormControlLabel
-                          label='Physical, emotional and/or medical neglect'
+                          label='Socioeconomic disadvantage impacting on access to appropriate services'
                           control={
-                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Socioeconomic disadvantage impacting on access to appropriate services'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Refuge/asylum seeker'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Refuge/asylum seeker'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Concern regarding child safety/wellbeing'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Concern regarding child safety/wellbeing'
+                            />
                           }
                         />
                       </FormGroup>
                     </FormControl>
                   </Grid>
 
-                  <Grid item xs={12} md={12}>
+                  <Grid item xs={12} md={12} style={{ marginBottom: 20 }}>
                     <Field
                       fullWidth
                       name='comments-2'
                       component={TextField}
                       multiline={true}
                       type='text'
-                      label='Advocate’s additional comments'
+                      label='Other comments'
                       rows={6}
                     />
+                  </Grid>
+
+                  <Grid item xs={12} md={12} style={{ marginBottom: 40, textAlign: 'center' }}>
+                    <label htmlFor='upload-photo'>
+                      <input
+                        style={{ display: 'none' }}
+                        id='upload-photo'
+                        name='upload-photo'
+                        type='file'
+                      />
+
+                      <Button
+                        variant='outlined'
+                        color='primary'
+                        type='button'
+                        startIcon={<Add />}
+                        size='large'
+                        component='span'
+                      >
+                        Attach Family Consent Form
+                      </Button>
+                    </label>
                   </Grid>
 
                   <Grid item xs={12} md={12} style={{ marginTop: 20 }}>

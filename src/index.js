@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Form, Field } from 'react-final-form';
 import { TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import clsx from 'clsx';
 import {
   Typography,
@@ -38,6 +37,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
+import Check from '@material-ui/icons/Check';
 import Add from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import StepConnector from '@material-ui/core/StepConnector';
@@ -51,13 +51,13 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#EB5846',
-      main: '#DE633A',
+      main: '#f1624f',
       dark: '#9F3B2F',
       contrastText: '#fff',
     },
     secondary: {
       light: '#EB5846',
-      main: '#DE633A',
+      main: '#f1624f',
       dark: '#9F3B2F',
       contrastText: '#F9B220',
     },
@@ -84,13 +84,13 @@ const validate = (values) => {
 };
 
 function getSteps() {
-  return ['ABOUT FAMILY', 'STRENGTHS AND NEEDS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
+  return ['ABOUT THE FAMILY', 'STRENGTHS AND NEEDS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
 }
 
 function App() {
   const steps = getSteps();
 
-  const [adultExpanded, setExpanded] = React.useState('panel2');
+  const [adultExpanded, setExpanded] = React.useState('panel1');
 
   const [showForm, setForm] = React.useState(false);
 
@@ -108,226 +108,393 @@ function App() {
     setOpen(false);
   };
 
-  const Provider_options = [
-    { title: 'Provider 1', contactDetails: 1994 },
-    { title: 'Provider 2', contactDetails: 1994 },
-    { title: 'Provider 3', contactDetails: 1994 },
-    { title: 'Provider 4', contactDetails: 1994 },
-    { title: 'Provider 5', contactDetails: 1994 },
-    { title: 'Provider 6', contactDetails: 1994 },
-    { title: 'Provider 7', contactDetails: 1994 },
-  ];
-
   return (
     <div style={{ padding: 16, margin: 'auto', maxWidth: 700 }}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
 
-        <React.Fragment>
-          <Form
-            onSubmit={onSubmit}
-            initialValues={{ employed: true, stooge: 'larry' }}
-            validate={validate}
-            render={({ handleSubmit, reset, submitting, pristine, values }) => (
-              <form onSubmit={handleSubmit} noValidate>
-                <Paper style={{ padding: 16, boxShadow: 'none' }}>
-                  <Stepper activeStep={2} alternativeLabel>
-                    {steps.map((label) => (
-                      <Step key={label}>
-                        <StepLabel>{label}</StepLabel>
-                      </Step>
-                    ))}
-                  </Stepper>
+        <Form
+          onSubmit={onSubmit}
+          initialValues={{ employed: true, stooge: 'larry' }}
+          validate={validate}
+          render={({ handleSubmit, reset, submitting, pristine, values }) => (
+            <form onSubmit={handleSubmit} noValidate>
+              <Paper style={{ padding: 16, boxShadow: 'none' }}>
+                <Stepper activeStep={3} alternativeLabel>
+                  {steps.map((label) => (
+                    <Step key={label}>
+                      <StepLabel>{label}</StepLabel>
+                    </Step>
+                  ))}
+                </Stepper>
+                <Typography variant='h5' component='h4'>
+                  ADVOCATE PROFILE
+                </Typography>
 
-                  <div align='center'>
-                    <img
-                      src='http://dev-wentwest.norbrik.com.au/wp-content/uploads/2021/03/serv.png'
-                      width={400}
+                <Grid container alignItems='flex-start' spacing={2}>
+                  <Grid item xs={12} md={12}>
+                    <Field
+                      fullWidth
+                      name='Organisation'
+                      component={TextField}
+                      type='text'
+                      label='Organisation'
+                      required
                     />
-                  </div>
-
-                  <Grid container alignItems='flex-start' spacing={2}>
-                    <Accordion
-                      expanded={adultExpanded === 'panel1'}
-                      onChange={handleChange('panel1')}
-                      style={{ width: '100%' }}
-                    >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls='panel1d-content'
-                        id='panel1d-header'
-                      >
-                        <Typography variant='h5' component='h4'>
-                          Support or service 1:
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Grid container alignItems='flex-start' spacing={2}>
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='Provided-to'
-                              component={TextField}
-                              type='text'
-                              label='Provided to'
-                            />
-                          </Grid>
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='comments-2'
-                              component={TextField}
-                              multiline={true}
-                              type='text'
-                              label='What is the support or service?'
-                              rows={6}
-                            />
-                          </Grid>
-
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='State'
-                              component={Select}
-                              label='Who is the provider?'
-                              formControlProps={{ fullWidth: true }}
-                            >
-                              <MenuItem value='NSW'>provider 1</MenuItem>
-                              <MenuItem value='NSW'>provider 2</MenuItem>
-                              <MenuItem value='NSW'>provider 3</MenuItem>
-                              <MenuItem value='NSW'>provider 4</MenuItem>
-                              <MenuItem value='NSW'>provider 5</MenuItem>
-                              <MenuItem value='NSW'>Other</MenuItem>
-                            </Field>
-                          </Grid>
-                        </Grid>
-                      </AccordionDetails>
-                    </Accordion>
-
-                    <Accordion
-                      expanded={adultExpanded === 'panel2'}
-                      onChange={handleChange('panel2')}
-                      style={{ width: '100%' }}
-                    >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls='panel1d-content'
-                        id='panel2d-header'
-                      >
-                        <Typography variant='h5' component='h4'>
-                          Support or service 1:
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Grid container alignItems='flex-start' spacing={2}>
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='Provided-to'
-                              component={TextField}
-                              type='text'
-                              label='Provided to'
-                            />
-                          </Grid>
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='comments-2'
-                              component={TextField}
-                              multiline={true}
-                              type='text'
-                              label='What is the support or service?'
-                              rows={6}
-                            />
-                          </Grid>
-
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='State'
-                              component={Select}
-                              label='Who is the provider?'
-                              formControlProps={{ fullWidth: true }}
-                            >
-                              <MenuItem value='NSW'>provider 1</MenuItem>
-                              <MenuItem value='NSW'>provider 2</MenuItem>
-                              <MenuItem value='NSW'>provider 3</MenuItem>
-                              <MenuItem value='NSW'>provider 4</MenuItem>
-                              <MenuItem value='NSW'>provider 5</MenuItem>
-                              <MenuItem value='NSW'>Other</MenuItem>
-                            </Field>
-                          </Grid>
-                        </Grid>
-                      </AccordionDetails>
-                    </Accordion>
-
-                    <Grid item xs={12} md={12} style={{ marginTop: 10, marginBottom: 20 }}>
-                      <div align='middle'>
-                        <Button
-                          variant='outlined'
-                          color='primary'
-                          type='button'
-                          disabled={submitting}
-                          startIcon={<Add />}
-                        >
-                          Add support or service
-                        </Button>
-                      </div>
-                    </Grid>
-
-                    <Grid item xs={12} md={12} style={{ marginTop: 40 }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Button
-                          variant='contained'
-                          color='primary'
-                          type='button'
-                          disabled={submitting}
-                          startIcon={<ChevronLeft />}
-                          size='large'
-                        >
-                          Previous step
-                        </Button>
-                        <Button
-                          variant='contained'
-                          color='primary'
-                          type='button'
-                          disabled={submitting}
-                          endIcon={<ChevronRight />}
-                          size='large'
-                        >
-                          Next step
-                        </Button>
-                      </div>
-                    </Grid>
                   </Grid>
-                </Paper>
-              </form>
-            )}
-          />
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby='alert-dialog-title'
-            aria-describedby='alert-dialog-description'
-          >
-            <DialogTitle id='alert-dialog-title'>
-              {'Are you sure you want to remove this entry?'}
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText id='alert-dialog-description'>
-                This action cannot be undone
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose} color='default'>
-                Cancel
-              </Button>
-              <Button onClick={handleClose} variant='contained' color='primary' autoFocus>
-                Remove
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </React.Fragment>
+                  <Grid item xs={12} md={12}>
+                    <Field
+                      fullWidth
+                      name='Role'
+                      component={TextField}
+                      type='text'
+                      label='Role'
+                      required
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Field
+                      fullWidth
+                      required
+                      name='firstName'
+                      component={TextField}
+                      type='text'
+                      label='First Name'
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Field
+                      fullWidth
+                      required
+                      name='lastName'
+                      component={TextField}
+                      type='text'
+                      label='Last Name'
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
+                    <Typography variant='h5' component='h5'>
+                      Contact details
+                    </Typography>
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Field
+                      fullWidth
+                      name='office-phone'
+                      component={TextField}
+                      label='Office phone'
+                      required
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <Field
+                      fullWidth
+                      name='mobile-phone'
+                      component={TextField}
+                      label='Mobile'
+                      required
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={12}>
+                    <Field
+                      name='email'
+                      fullWidth
+                      required
+                      component={TextField}
+                      type='email'
+                      label='Email'
+                      required
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={12}>
+                    <Field
+                      name='Best time and day(s) to contact you '
+                      fullWidth
+                      required
+                      component={TextField}
+                      label='Best time and day(s) to contact you '
+                      required
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={12}>
+                    <FormControl component='fieldset'>
+                      <FormGroup row>
+                        <FormLabel component='legend' style={{ width: '100%' }}>
+                          Do you have capacity to be a Lead Service Provider (LSP)? *
+                        </FormLabel>
+                        <FormControlLabel
+                          label='Yes'
+                          control={
+                            <Field
+                              name='Aboriginal-2'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='AborYesiginal'
+                              required
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='No'
+                          control={
+                            <Field
+                              name='Aboriginal-2'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='No'
+                              required
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='I want to know more'
+                          control={
+                            <Field
+                              name='Aboriginal-2'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='I want to know more'
+                              required
+                            />
+                          }
+                        />
+                      </FormGroup>
+                    </FormControl>
+                  </Grid>
+
+                  <Grid item xs={12} md={12}></Grid>
+
+                  <Grid item xs={12} md={12}>
+                    <FormControl component='fieldset'>
+                      <FormGroup col>
+                        <FormLabel component='legend' style={{ width: '100%' }}>
+                          One or more children in this family aged 0-5 years has/have experienced
+                          one or more of the following ACEs
+                        </FormLabel>
+                        <FormControlLabel
+                          label='Young parent under 25'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Young parent under 25'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Homeless/Housing instability'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Homeless/Housing instability'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Substance use or smoking in pregnancy'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Substance use or smoking in pregnancy'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Involvement in out of home care (OOHC)'
+                          control={
+                            <Field name='ace' component={Checkbox} type='checkbox' value='' />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Domestic and Family Violence'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Domestic and Family Violence'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Past experience of trauma'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Past experience of trauma'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Poor physical and/or mental health'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Poor physical and/or mental health'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Not enrolled in school (compulsory school age)'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Not enrolled in school (compulsory school age)'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Multiple changes of schools – outside normal transition phases'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Multiple changes of schools – outside normal transition phases'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Involvement with criminal justice system'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Involvement with criminal justice system'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Limited appropriate social networks and connections and /or limited family supports'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Limited appropriate social networks and connections and /or limited family supports'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Socioeconomic disadvantage impacting on access to appropriate services'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Socioeconomic disadvantage impacting on access to appropriate services'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Refuge/asylum seeker'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Refuge/asylum seeker'
+                            />
+                          }
+                        />
+                        <FormControlLabel
+                          label='Concern regarding child safety/wellbeing'
+                          control={
+                            <Field
+                              name='ace'
+                              component={Checkbox}
+                              type='checkbox'
+                              value='Concern regarding child safety/wellbeing'
+                            />
+                          }
+                        />
+                      </FormGroup>
+                    </FormControl>
+                  </Grid>
+
+                  <Grid item xs={12} md={12} style={{ marginBottom: 20 }}>
+                    <Field
+                      fullWidth
+                      name='comments-2'
+                      component={TextField}
+                      multiline={true}
+                      type='text'
+                      label='Other comments'
+                      rows={6}
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} md={12} style={{ marginBottom: 40, textAlign: 'center' }}>
+                    <label htmlFor='upload-photo'>
+                      <input
+                        style={{ display: 'none' }}
+                        id='upload-photo'
+                        name='upload-photo'
+                        type='file'
+                      />
+
+                      <Button
+                        variant='outlined'
+                        color='primary'
+                        type='button'
+                        startIcon={<Add />}
+                        size='large'
+                        component='span'
+                      >
+                        Attach Family Consent Form
+                      </Button>
+                    </label>
+                  </Grid>
+
+                  <Grid item xs={12} md={12} style={{ marginTop: 20 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <Button
+                        variant='contained'
+                        color='primary'
+                        type='button'
+                        disabled={submitting}
+                        startIcon={<ChevronLeft />}
+                        size='large'
+                      >
+                        Previous step
+                      </Button>
+                      <Button
+                        variant='contained'
+                        color='primary'
+                        type='button'
+                        disabled={submitting}
+                        startIcon={<Check />}
+                        size='large'
+                      >
+                        SUBMIT
+                      </Button>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </form>
+          )}
+        />
       </ThemeProvider>
     </div>
   );

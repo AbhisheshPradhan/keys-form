@@ -48,13 +48,13 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#EB5846',
-      main: '#DE633A',
+      main: '#f1624f',
       dark: '#9F3B2F',
       contrastText: '#fff',
     },
     secondary: {
       light: '#EB5846',
-      main: '#DE633A',
+      main: '#f1624f',
       dark: '#9F3B2F',
       contrastText: '#F9B220',
     },
@@ -95,7 +95,7 @@ const validate = (values) => {
 };
 
 function getSteps() {
-  return ['ABOUT FAMILY', 'STRENGTHS AND NEEDS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
+  return ['ABOUT THE FAMILY', 'STRENGTHS AND NEEDS', 'SUPPORT AND SERVICES', 'ADVOCATE PROFILE'];
 }
 
 function App() {

@@ -90,7 +90,7 @@ function getSteps() {
 function App() {
   const steps = getSteps();
 
-  const [adultExpanded, setExpanded] = React.useState('panel2');
+  const [adultExpanded, setExpanded] = React.useState('panel1');
 
   const [showForm, setForm] = React.useState(false);
 
@@ -200,62 +200,15 @@ function App() {
                               <MenuItem value='NSW'>Other</MenuItem>
                             </Field>
                           </Grid>
-                        </Grid>
-                      </AccordionDetails>
-                    </Accordion>
-
-                    <Accordion
-                      expanded={adultExpanded === 'panel2'}
-                      onChange={handleChange('panel2')}
-                      style={{ width: '100%' }}
-                    >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls='panel1d-content'
-                        id='panel2d-header'
-                      >
-                        <Typography variant='h5' component='h4'>
-                          Support or service 1:
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Grid container alignItems='flex-start' spacing={2}>
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='Provided-to'
-                              component={TextField}
-                              type='text'
-                              label='Provided to'
-                            />
-                          </Grid>
-                          <Grid item xs={12} md={12}>
-                            <Field
-                              fullWidth
-                              name='comments-2'
-                              component={TextField}
-                              multiline={true}
-                              type='text'
-                              label='What is the support or service?'
-                              rows={6}
-                            />
-                          </Grid>
 
                           <Grid item xs={12} md={12}>
                             <Field
                               fullWidth
-                              name='State'
-                              component={Select}
-                              label='Who is the provider?'
-                              formControlProps={{ fullWidth: true }}
-                            >
-                              <MenuItem value='NSW'>provider 1</MenuItem>
-                              <MenuItem value='NSW'>provider 2</MenuItem>
-                              <MenuItem value='NSW'>provider 3</MenuItem>
-                              <MenuItem value='NSW'>provider 4</MenuItem>
-                              <MenuItem value='NSW'>provider 5</MenuItem>
-                              <MenuItem value='NSW'>Other</MenuItem>
-                            </Field>
+                              name='Provider'
+                              component={TextField}
+                              type='text'
+                              label='Provider'
+                            />
                           </Grid>
                         </Grid>
                       </AccordionDetails>

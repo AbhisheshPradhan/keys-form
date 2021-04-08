@@ -270,14 +270,30 @@ function App() {
                     </FormControl>
                   </Grid>
 
-                  <Grid item xs={12} md={12}></Grid>
+                  <Grid item xs={12} md={12}>
+                    <Typography>
+                      <FormLabel component='legend' style={{ width: '100%' }}>
+                        <strong>Referral Criteria (must meet all criteria)</strong>
+                      </FormLabel>
+                      <ol style={{ paddingLeft: 20 }}>
+                        <li>Live in the Western Sydney Local Health District</li>
+                        <li>
+                          Currently pregnant and/or have children in their care 0-5 years inclusive
+                        </li>
+                        <li>
+                          Not engaged in appropriate services that would be required to meet their
+                          needs, or requires a multiagency response
+                        </li>
+                      </ol>
+                    </Typography>
+                  </Grid>
 
                   <Grid item xs={12} md={12}>
                     <FormControl component='fieldset'>
                       <FormGroup col>
                         <FormLabel component='legend' style={{ width: '100%' }}>
-                          One or more children in this family aged 0-5 years has/have experienced
-                          one or more of the following ACEs
+                          <strong>Vulnerability indicators (for parent or child)</strong>{' '}
+                          <em>Please complete as able</em>
                         </FormLabel>
                         <FormControlLabel
                           label='Young parent under 25'
